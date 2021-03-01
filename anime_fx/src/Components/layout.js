@@ -2,30 +2,64 @@ import React from 'react'
 
 import {Container} from 'rsuite'
 import { Grid, Row, Col } from 'rsuite';
+import { Input, InputGroup } from 'rsuite';
+import { Drawer } from 'rsuite';
+import { Icon } from 'rsuite'
+import { Button } from 'rsuite' 
 
 import logo from '../Assets/logo.svg'
 import './layout.css'
 
 function Layout() {
+    const [showDrawer, setShowDrawer] = React.useState(false);
+
     return (
         <Container>
-            <Grid style={{backgroundColor: 'rgba(0,0,0,0.2)', width: '100%'}}>
+            <Grid style={{backgroundColor: 'rgba(0,0,0,0.2)', width: '100%', zIndex: 1}}>
             <Row>
-                <Col xs={6} sm={6} md={6} lg={4}>
+                <Col md={1} sm={3} xs={3}>
+                    <div style={{cursor: 'pointer', marginLeft: '2vw', marginTop: '30px'}} onClick={() => setShowDrawer(!showDrawer)}>
+                    <Icon icon="bars" size="2x" style={{color: 'white'}}/>
+                    </div>
+                </Col>
+                <Col xs={6} sm={6} md={5} lg={4}>
                     <img src={logo} alt="AnimeFX" style={styles.logo} />
                 </Col>
-                <Col xsHidden smHidden mdPush={2} lgPush={1} md={2}>
-                    <h5 style={styles.navItem}>Home</h5>
+                <Col xsHidden smHidden mdPush={2} lgPush={1} md={1}>
+                <Button appearance="subtle" color="red" style={styles.navItem}><h5>HOME</h5></Button>
                 </Col>
-                <Col xs={5} sm={4} xsPush={13} mdPush={12} md={2} lgPush={14}>
-                    <h5 style={styles.navItem}>SIGN IN</h5>
+                <Col md={6} mdPush={3} smHidden xsHidden>
+                    <InputGroup inside style={{marginTop: '25px'}}>
+                    <Input placeholder="Search" style={{backgroundColor: '#303030'}}/>
+                    <InputGroup.Button>
+                        <Icon icon="search" />
+                    </InputGroup.Button>
+                    </InputGroup>
                 </Col>
-                <Col xsHidden smHidden mdPush={12} md={2} lgPush={14}>
-                    <h5 style={styles.navItem}>SIGN UP</h5>
+                <Col xs={5} sm={4} xsPush={10} mdPush={6} md={2} lgPush={8}>
+                <Button appearance="subtle" color="red" style={styles.navItem}><h5>SIGN IN</h5></Button>
+                </Col>
+                <Col xsHidden smHidden mdPush={6} md={2} lgPush={8}>
+                    <Button appearance="subtle" color="red" style={styles.navItem}><h5>SIGN UP</h5></Button>
                 </Col>
             </Row>
             </Grid>
-          
+            <Drawer
+            size='xs'
+            placement='left'
+            show={showDrawer}
+            onHide={() => setShowDrawer(false)}
+            backdrop
+            style={{zIndex: 0}}
+            >
+            <Drawer.Header>
+                <Drawer.Title></Drawer.Title>
+            </Drawer.Header>
+            <Drawer.Body style={{backgroundColor: '#000000'}}>
+            </Drawer.Body>
+            <Drawer.Footer>
+            </Drawer.Footer>
+            </Drawer>
         </Container>
     )
 }
@@ -52,9 +86,9 @@ const styles = {
         marginBottom: '3px'
     },
     navItem: {
-        marginTop: '30px',
+        marginTop: '25px',
         color: 'white',
-        fontFamily: 'sans-serif'
+        fontFamily: 'Roboto Condensed, sans-serif'
     }
 }
 
