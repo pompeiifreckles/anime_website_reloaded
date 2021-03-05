@@ -4,7 +4,7 @@ import { Input, InputGroup } from 'rsuite';
 import { Icon } from 'rsuite'
 import { Button } from 'rsuite' 
 
-import {NavBarInfo} from './layout'
+import { NavBarInfo } from './layout'
 import logo from '../Assets/logo.svg'
 
 
@@ -12,7 +12,7 @@ function NavBar() {
     return (
         <NavBarInfo.Consumer>
             {({setShowDrawer, showDrawer}) => (
-                <Grid style={{backgroundColor: 'rgba(26,29,36,1)', width: '100%', zIndex: 1}}>
+                <Grid style={{backgroundColor: 'rgba(26,29,36,1)', width: '100vw', zIndex: 1}}>
                 <Row>
                     <Col md={1} sm={3} xs={3}>
                         <div style={{cursor: 'pointer', marginLeft: '2vw', marginTop: '30px'}} onClick={() => setShowDrawer(!showDrawer)}>

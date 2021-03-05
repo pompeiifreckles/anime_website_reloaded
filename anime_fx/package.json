@@ -12,6 +12,8 @@
     "react": "^17.0.1",
     "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.1",
+    "react-horizontal-scrolling-menu": "^0.7.10",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "rsuite": "^4.9.2",
     "web-vitals": "^1.0.1"

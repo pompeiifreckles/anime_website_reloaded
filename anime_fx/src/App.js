@@ -1,4 +1,7 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import Layout from './Components/layout'
+import Home from './Pages/Home'
 
 import './App.css';
 //import 'rsuite/dist/styles/rsuite-default.css';
@@ -10,7 +13,9 @@ function App() {
   return (
     <div className="App">
       <Layout />
-
+      {/* <div style={{width: '100%', display: 'flex', flexDirection: 'column ', justifyContent:'center', alignItems: 'center', margin: '5vh 0 0 0'}}> */}
+      <Home />
+      {/* </div> */}
     </div>
   );
 }
