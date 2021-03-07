@@ -3,16 +3,23 @@ import { Grid, Row, Col } from 'rsuite';
 import { Input, InputGroup } from 'rsuite';
 import { Icon } from 'rsuite'
 import { Button } from 'rsuite' 
+import { Link, useLocation } from 'react-router-dom'
 
+import routes from './routes'
 import { NavBarInfo } from './layout'
 import logo from '../Assets/logo.svg'
 
 
 function NavBar() {
+    let { pathname: location } = useLocation()
+
+    if(!routes.includes(location)) location = "HOME"
+    else location = location.split("/").reverse()[0]
+
     return (
         <NavBarInfo.Consumer>
             {({setShowDrawer, showDrawer}) => (
-                <Grid style={{backgroundColor: 'rgba(26,29,36,1)', width: '100vw', zIndex: 1}}>
+                <Grid style={{backgroundColor: 'rgba(26,29,36,1)', width: '100%', zIndex: 1}}>
                 <Row>
                     <Col md={1} sm={3} xs={3}>
                         <div style={{cursor: 'pointer', marginLeft: '2vw', marginTop: '30px'}} onClick={() => setShowDrawer(!showDrawer)}>
@@ -20,10 +27,12 @@ function NavBar() {
                         </div>
                     </Col>
                     <Col xs={6} sm={6} md={5} lg={4}>
+                        <Link to="/">
                         <img src={logo} alt="AnimeFX" style={styles.logo} />
+                        </Link>
                     </Col>
-                    <Col xsHidden smHidden mdPush={2} lgPush={1} md={1}>
-                    <Button appearance="subtle" color="red" style={styles.navItem}><h5>HOME</h5></Button>
+                    <Col xsHidden smHidden mdPush={1} lgPush={1} md={1}>
+                        <div style={{}}><h5 style={{...styles.navItem, margin: '33px 30px 0'}}>{location}</h5></div>
                     </Col>
                     <Col md={6} mdPush={3} smHidden xsHidden>
                         <InputGroup inside style={{marginTop: '25px'}}>

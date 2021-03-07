@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from 'rsuite'
 import { Drawer, Divider } from 'rsuite';
+import { Link } from 'react-router-dom'
 
 import NavBar from './navbar'
 import logo from '../Assets/logo.svg'
@@ -33,7 +34,9 @@ function Layout() {
             </Drawer.Header>
             <Drawer.Body>
                 <ul style={{listStyle: 'none' }}>
-                <li style={{ margin: '0 0 2rem 2em', fontSize: '20px'}}>Home</li>
+                <li style={{ margin: '0 0 2rem 2em', fontSize: '20px'}}>
+                    <Link to="/">Home</Link>
+                </li>
                 <li style={{ margin: '0 0 2rem 2em', fontSize: '20px' }}>Trending</li>
                 <li style={{ margin: '0 0 2rem 2em', fontSize: '20px' }}>Random</li>
                 <li style={{ margin: '0 0 2rem 2em', fontSize: '20px' }}>Search</li>
