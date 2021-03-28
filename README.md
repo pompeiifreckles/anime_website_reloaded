@@ -10,8 +10,10 @@ Streaming service for anime using HLS and amazon content delivery network.
 ## TODO
 
 - [x] - Header
+- [x] - Automatic transcoding script
 - [ ] - Drawer
 - [ ] - Login & Signup
 - [ ] - Home
 - [ ] - Search
 - [ ] - Trending
+- [ ] - CI/CD pipeline
